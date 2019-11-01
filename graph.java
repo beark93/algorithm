@@ -60,6 +60,85 @@ public class graph {
             return this.v - e.getValue();
         }
     }
+
+    public static class Node {
+        private int data;
+        private Node leftNode;
+        private Node rightNode;
+
+        public Node() {
+            this.leftNode = null;
+            this.rightNode = null;
+        }
+
+        public Node(int data) {
+            this.data = data;
+            this.leftNode = null;
+            this.rightNode = null;
+        }
+
+        public void setLeft(Node node) {
+            this.leftNode = node;
+        }
+
+        public void setRight(Node node) {
+            this.rightNode = node;
+        }
+
+        public void setData(int data) {
+            this.data = data;
+        }
+        
+        public Node getLeft() {
+            return this.leftNode;
+        }
+        
+        public Node getRight() {
+            return this.rightNode;
+        }
+        
+        public int getData() {
+            return this.data;
+        }
+
+        public void preOrder() {
+            System.out.print(this.data + " ");
+
+            if(this.leftNode != null) {
+                this.leftNode.preOrder();
+            }
+
+            if(this.rightNode != null) {
+                this.rightNode.preOrder();
+            }
+        }
+
+        public void inOrder() {
+
+            if(this.leftNode != null) {
+                this.leftNode.inOrder();
+            }
+
+            System.out.print(this.data + " ");
+
+            if(this.rightNode != null) {
+                this.rightNode.inOrder();
+            }
+        }
+
+        public void postOrder() {
+
+            if(this.leftNode != null) {
+                this.leftNode.postOrder();
+            }
+            
+            if(this.rightNode != null) {
+                this.rightNode.postOrder();
+            }
+
+            System.out.print(this.data + " ");
+        }
+    }
     
     public static void main(String[] args) {
         Graph graph = new Graph(7);
@@ -126,6 +205,28 @@ public class graph {
 
         int sum = kruskal(array,parent_kruskal);
         System.out.println("Kruskal Sum : " + sum);
+        
+        System.out.println("\n--------------------------------------------------------");
+    
+        // 이진 트리 탐색
+        Node[] nodes = new Node[16];
+
+        for(int i=1;i<16;i++) {
+            nodes[i] = new Node(i);
+        }
+
+        for(int i=1;i<8;i++) {
+            nodes[i].setLeft(nodes[2*i]);
+            nodes[i].setRight(nodes[2*i+1]);
+        }
+
+        System.out.print("PreOrder : ");
+        nodes[1].preOrder();
+        System.out.print("\nInOrder : ");
+        nodes[1].inOrder();
+        System.out.print("\nPostOrder : ");
+        nodes[1].postOrder();
+
 
     }
 
