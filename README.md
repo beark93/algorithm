@@ -1,13 +1,9 @@
 # algorithm
 
-Study Algorithm
+Study Algorithm  
 
-language : Java
+language : Java  
+editer : Visual Studio Code  
 
-editer : Visual Studio Code
-
-
-
-1.Sort
-
-  Selection, Bubble, Insertion, Quick, Merge, Heap, Counting Sort
+1.Sort  
+Selection, Bubble, Insertion, Quick, Merge, Heap, Counting Sort
